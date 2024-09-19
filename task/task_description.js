@@ -178,12 +178,12 @@ function downloadDemographicData() {
     headers: {
         'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-        gender: demographic_data[0].response.gender,
-        age: demographic_data[0].response.age,
-        ethnicity: demographic_data[0].response.ethnicity,
-        race: demographic_data[0].response.race
-    }),
+    body: JSON.stringify(demographic_data.map(row => ({
+      gender: row.response.gender,
+      age: row.response.age,
+      ethnicity: row.response.ethnicity,
+      race: row.response.race
+    }))),
   })
   .then(response => response.json())
   .then(data => {
