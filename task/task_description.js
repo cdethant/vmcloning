@@ -173,20 +173,25 @@ function downloadDemographicData() {
   var dateTime = `${day}_${month}_${year}_${hours}_${minutes}_${seconds}`;
 
   // Create a blob for CSV data
-  var blob = new Blob([csv], { type: 'text/csv' });
-  var url = window.URL.createObjectURL(blob);
-  var a = document.createElement('a');
-  a.style.display = 'none';
-  a.href = url;
-  
-  // Set the download attribute to the filename in 'date_time' format
-  a.download = `demographic_data_${dateTime}.csv`;
-
-  // Append anchor to body and trigger download
-  document.body.appendChild(a);
-  a.click();
-  window.URL.revokeObjectURL(url);
-  document.body.removeChild(a);
+  fetch('/save-data', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        gender: demographic_data[0].response.gender,
+        age: demographic_data[0].response.age,
+        ethnicity: demographic_data[0].response.ethnicity,
+        race: demographic_data[0].response.race
+    }),
+  })
+  .then(response => response.json())
+  .then(data => {
+      console.log('Success:', data);
+  })
+  .catch((error) => {
+      console.error('Error:', error);
+  });
 }
 
 //////////////////////////////////////////FUNCTIONS/////////////////////////////////////////////////////////

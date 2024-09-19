@@ -32,6 +32,17 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'task', 'demo.html'));
 });
 
+// API route to handle POST requests
+app.post('/save-data', (req, res) => {
+    const { gender, age, ethnicity, race } = req.body;
+    
+    // Save the data to a database or file (this is just an example)
+    console.log('Received data:', req.body);
+  
+    // Respond to the client
+    res.status(200).json({ message: 'Data received successfully' });
+  });
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
