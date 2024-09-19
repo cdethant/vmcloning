@@ -1,0 +1,148 @@
+
+p {
+  text-align: justify;
+}
+
+
+.trial-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.trial-number {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.balloon-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.inflate-button {
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px 40px;
+  font-size: 30px;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.bank-button {
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px 40px;
+  font-size: 30px;
+  background-color: lightskyblue;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.balloon {
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s ease, height 0.3s ease; /* Add this line */
+}
+
+.reward {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black; /* Text color */
+  font-weight: bold; /* Text style */
+  font-size: 40px; /* Adjust font size as needed */
+  text-align: center; /* Ensure the text is centered */
+}
+
+.inflate-button:active {
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px 40px;
+  font-size: 30px;
+  background-color: darkgreen;
+  color: white;
+  font-weight: bold;
+  border: 2px solid grey; /* Added grey border */
+  border-radius: 10px;
+  text-align: center;
+}
+
+.total-reward {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+}
+
+
+.circle-container {
+  position: relative;
+}
+
+.fixed-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid grey;
+  border-radius: 50%;
+  z-index: -1; /* Ensures the circle is behind the balloon */
+}
+
+
+.black-square {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  display: none; /* Initially hidden */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+
+.center {
+  text-align: center;
+}
+
+
+.logo-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
